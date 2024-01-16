@@ -48,6 +48,7 @@ const Auth = () => {
     <div className="relative h-full w-full bg-[url('/images/bg.jpg')] bg-no-repeaar bg-center bg-fix bg-cover">
       <div className="bg-black w-full h-full lg:bg-opacity-50">
         <nav className="px-12 py-5">
+          {process.env.GITHUB_SECRET}
           <img src="/images/logo.png" alt="logo" className="h-12" />
         </nav>
         <div className="flex justify-center">
