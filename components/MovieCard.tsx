@@ -2,15 +2,21 @@ import { FC } from "react";
 // import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { BsFillPlayFill } from "react-icons/bs";
 import FavoriteButton from "./FavoriteButton";
+import { useRouter } from "next/router";
 
 interface MovieCardProps {
   data: Record<string, any>;
 }
 const MovieCard: FC<MovieCardProps> = ({ data }) => {
+  const router = useRouter();
+
+  const redirectToWatch = () => {
+    router.push(`/watch/${data?.id}`);
+  };
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img
-        // onClick={redirectToWatch}
+        onClick={redirectToWatch}
         src={data.thumbnailUrl}
         alt="Movie"
         draggable={false}
@@ -48,7 +54,7 @@ const MovieCard: FC<MovieCardProps> = ({ data }) => {
       "
       >
         <img
-          //   onClick={redirectToWatch}
+          onClick={redirectToWatch}
           src={data.thumbnailUrl}
           alt="Movie"
           draggable={false}
@@ -78,10 +84,10 @@ const MovieCard: FC<MovieCardProps> = ({ data }) => {
         >
           <div className="flex flex-row items-center gap-3">
             <div
-              //   onClick={redirectToWatch}
+              onClick={redirectToWatch}
               className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center transition hover:bg-neutral-300"
             >
-              <BsFillPlayFill size={30} />
+              <BsFillPlayFill size={25} />
             </div>
             <FavoriteButton movieId={data.id} />
             <div
