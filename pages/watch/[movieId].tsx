@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import useMovie from "@/hooks/useMovie";
 
-const watch: React.FC<any> = () => {
+const Watch: React.FC<any> = () => {
   const router = useRouter();
   const { movieId } = router.query;
 
@@ -33,4 +33,4 @@ const watch: React.FC<any> = () => {
   );
 };
 
-export default watch;
+export default Watch;
